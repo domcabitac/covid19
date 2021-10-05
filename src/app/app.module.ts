@@ -7,7 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountriesComponent } from './components/countries/countries.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component'
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http'
     NavbarComponent,
     HomeComponent,
     CountriesComponent,
+    DashboardCardComponent,
   ],
   imports: [
     BrowserModule,

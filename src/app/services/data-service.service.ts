@@ -43,7 +43,6 @@ export class DataServiceService {
             temp.cumulative_cases 	 = cs.cumulative_cases;
             temp.cumulative_deaths 	 = cs.cumulative_deaths;
             temp.cumulative_recovered = cs.cumulative_recovered;
-
             (<any>raw)[cs.province] = temp;
           } else {
             (<any>raw)[cs.province] = cs;
