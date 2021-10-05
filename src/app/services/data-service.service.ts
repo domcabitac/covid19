@@ -15,7 +15,7 @@ var year = dateObj.getFullYear();
 export class DataServiceService {
 
   // private globalDataURL =  `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${month}-${day}-${year}.csv`;
-  private globalDataURL =  'https://raw.githubusercontent.com/ccodwg/Covid19Canada/master/timeseries_canada/active_timeseries_canada.csv';
+  private globalDataURL =  'https://raw.githubusercontent.com/ccodwg/Covid19Canada/master/timeseries_prov/active_timeseries_prov.csv';
 
   constructor(private http : HttpClient) { }
 
@@ -35,13 +35,14 @@ export class DataServiceService {
             cumulative_deaths: +col[4],
             cumulative_recovered: +col[3],
             active_cases: +col[5],
+            date_active: +col[1]
           };
           let temp : GlobalDataSummary = (<any>raw)[cs.province];
           if(temp) {
-            temp.active_cases = cs.active_cases + temp.active_cases!;
-            temp.cumulative_cases 	 = cs.cumulative_cases 	 + temp.cumulative_cases!;
-            temp.cumulative_deaths 	 = cs.cumulative_deaths 	 + temp.cumulative_deaths!;
-            temp.cumulative_recovered = cs.cumulative_recovered + temp.cumulative_recovered!;
+            temp.active_cases = cs.active_cases;
+            temp.cumulative_cases 	 = cs.cumulative_cases;
+            temp.cumulative_deaths 	 = cs.cumulative_deaths;
+            temp.cumulative_recovered = cs.cumulative_recovered;
 
             (<any>raw)[cs.province] = temp;
           } else {
