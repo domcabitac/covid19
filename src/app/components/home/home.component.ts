@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit {
   pieChart : GoogleChartInterface = {
     chartType: 'PieChart'
   }
+  columnChart : GoogleChartInterface = {
+    chartType: 'columnChart'
+  }
 
   constructor(private dataService: DataServiceService) { }
 
@@ -30,12 +33,23 @@ export class HomeComponent implements OnInit {
         cs.province, cs.cumulative_cases
       ])
     })
-    console.log(datatable);
     this.pieChart = {
       chartType: 'PieChart',
       dataTable: datatable,
       //firstRowIsData: true,
-      options: {'Province': 'Cases'},
+      options: {
+        height: 500,
+        'Province': 'Cases'
+      },
+    };
+    this.columnChart = {
+      chartType: 'ColumnChart',
+      dataTable: datatable,
+      //firstRowIsData: true,
+      options: {
+        height: 500,
+        'Province': 'Cases'
+      },
     };
   }
 
