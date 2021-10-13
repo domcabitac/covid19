@@ -24,13 +24,23 @@ export class HomeComponent implements OnInit {
 
   constructor(private dataService: DataServiceService) { }
 
-  initChart() {
+  initChart(caseType : string) {
 
     let datatable: string[][] | any = [];
     datatable.push(["Province", "Cases"])
     this.globalData?.forEach(cs=>{
+      let value : number | any;
+      if(caseType == 'c') 
+        value = cs.cumulative_cases;
+      if(caseType == 'a') 
+        value = cs.active_cases;
+      if(caseType == 'd') 
+        value = cs.cumulative_deaths
+      if(caseType == 'r') 
+        value = cs.cumulative_recovered
+      
       datatable.push([
-        cs.province, cs.cumulative_cases
+        cs.province, value
       ])
     })
     this.pieChart = {
@@ -39,7 +49,7 @@ export class HomeComponent implements OnInit {
       //firstRowIsData: true,
       options: {
         height: 500,
-        'Province': 'Cases'
+        'Province': 'Cases',
       },
     };
     this.columnChart = {
@@ -48,7 +58,7 @@ export class HomeComponent implements OnInit {
       //firstRowIsData: true,
       options: {
         height: 500,
-        'Province': 'Cases'
+        'Province': 'Cases',
       },
     };
   }
@@ -66,9 +76,12 @@ export class HomeComponent implements OnInit {
             this.totalRecovered+=(<any>cs).cumulative_recovered
           }
         })
-        this.initChart();
+        this.initChart('c');
       }
     });
   }
-
+  updateChart(input : HTMLInputElement) {
+    console.log(input.value);
+    this.initChart(input.value);
+  }
 }

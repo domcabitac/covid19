@@ -1,0 +1,15 @@
+.card {
+    transition: 250ms all ease;
+    &:hover {
+        transform: translateY(-10px);
+        transition: 250ms all ease;
+    }
+}
+
+.success {
+    background-color: none;
+}
+
+.danger {
+    background-color: red;
+}

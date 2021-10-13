@@ -1,6 +1,35 @@
 <div class="jumbotron bg-white text-center">
     <h1 class="display-4">Canada's SARS-CoV-2 Tracker</h1>
     <hr>
+    <div class="ui form">
+    <div class="inline fields">
+        <label for="caseType">Select Case Type:</label>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" value ='c' id='c'  (click)='updateChart(c)' #c name="caseType" checked="" tabindex="0" class="hidden">
+            <label for='c'>Confirmed</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="caseType" value='d' id='d' #d tabindex="0" class="hidden" (click)='updateChart(d)'>
+            <label for='d'>Deaths</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="caseType" value='r' id='r' #r tabindex="0" class="hidden" (click)='updateChart(r)'>
+            <label for='r'>Recovered</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" value ='a' id='a' name="caseType" #a tabindex="0" class="hidden" (click)='updateChart(a)'>
+            <label for='a'>Active</label>
+          </div>
+        </div>
+      </div>
+    </div>
 <app-dashboard-card [totalConfirmed]='totalConfirmed'
     [totalActive]='totalActive'
     [totalRecovered]='totalRecovered'

@@ -16,6 +16,10 @@ export class DashboardCardComponent implements OnInit {
   @Input('totalRecovered')
   totalRecovered! : number;
 
+  // updateChart(input : HTMLDivElement) {
+  //   console.log(input);
+  // }
+
   constructor() { }
 
   ngOnInit(): void {
