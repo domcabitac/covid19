@@ -9,7 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountriesComponent } from './components/countries/countries.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component'
+import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component';
+import { ChartsModule  } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DashboardCardComponent } from './components/dashboard-card/dashboard-ca
     BrowserAnimationsModule,
     HttpClientModule,
     Ng2GoogleChartsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
