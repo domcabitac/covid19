@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="card col p-3 m-3">
+    <div class="card col p-3 m-3 {{is_active}}" name="caseType" value='c' (click)="updateChartType('c'); toggleNav()" >
         <div class="ui statistic">
             <div class="label" >
-                <h3>
+                <h3 for='c'>
                     Confirmed
                 </h3>
               </div>
@@ -11,22 +11,10 @@
             </div>
         </div>
     </div>
-    <div class="card col p-3 m-3">
+        <div class="card col p-3 m-3 {is_active}}" name="caseType" value='d' (click)="updateChartType('d'); toggleNav()">
         <div class="ui statistic">
             <div class="label">
-                <h3>
-                    Recovered
-                </h3>
-              </div>
-            <div class="value">
-                {{totalRecovered}}
-            </div>
-        </div>
-    </div>        
-    <div class="card col p-3 m-3">
-        <div class="ui statistic">
-            <div class="label">
-                <h3>
+                <h3 for='d'>
                     Deaths
                 </h3>
               </div>
@@ -35,12 +23,24 @@
             </div>
         </div>
     </div>
-    <div class="card col p-3 m-3">
+    <div class="card col p-3 m-3 {is_active}}" name="caseType" value='r'  (click)="updateChartType('r'); toggleNav()">
         <div class="ui statistic">
             <div class="label">
-                <h3>
-                    Active
+                <h3 for='r'>
+                    Recovered
                 </h3>
+              </div>
+            <div class="value">
+                {{totalRecovered}}
+            </div>
+        </div>
+    </div>        
+    <div class="card col p-3 m-3 {is_active}}" name="caseType" value='a' id='a' (click)="updateChartType('a'); toggleNav()">
+        <div class="ui statistic">
+            <div class="label">
+                <label for='a'>
+                    Active
+                </label>
               </div>
             <div class="value">
                 {{totalActive}}
@@ -48,3 +48,23 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-6">
+        <canvas *ngIf="loaded" baseChart chartType="doughnut" [data]="doughnutChartData"
+        [labels]="doughnutChartLabels" [options]="chartOptions" [legend]="false">
+      </canvas>
+    </div>
+    <div class="col-5">
+      <canvas height='400' *ngIf="loaded" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+        [options]="barChartOptions" [legend]="false" chartType="bar">
+      </canvas>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <canvas baseChart width="400" height="200" [datasets]="lineChartData" [labels]="lineChartLabels"
+            [legend]="lineChartLegend" chartType="line">
+        </canvas>
+      </div>
+  </div>

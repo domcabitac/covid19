@@ -1,51 +1,9 @@
 <div class="jumbotron bg-white text-center">
     <h1 class="display-4">Canada's SARS-CoV-2 Tracker</h1>
     <hr>
-    <div class="ui form">
-    <div class="inline fields">
-        <label for="caseType">Select Case Type:</label>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" value ="confirmed" id='confirmed' #confirmed (click)='updateChartType(confirmed)' name="caseType" checked="" tabindex="0" class="hidden">
-            <label for='confirmed'>Confirmed</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" name="caseType" value="deaths" id='deaths' #deaths (click)='updateChartType(deaths)' tabindex="0" class="hidden" >
-            <label for='deaths'>Deaths</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" name="caseType" value="recovered" id='recovered' #recovered (click)='updateChartType(recovered)' tabindex="0" class="hidden" >
-            <label for='recovered'>Recovered</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" value ="active" id='active' name="caseType" #active (click)='updateChartType(active)' tabindex="0" class="hidden" >
-            <label for='active'>Active</label>
-          </div>
-        </div>
-      </div>
-    </div>
 <app-dashboard-card [totalConfirmed]='totalConfirmed'
     [totalActive]='totalActive'
     [totalRecovered]='totalRecovered'
     [totalDeaths]='totalDeaths'
 ></app-dashboard-card>
-</div>
-
-<div class="row">
-    <div class="col-6">
-      <canvas *ngIf="loaded" width="300" height="300" baseChart chartType="doughnut" [data]="doughnutChartData"
-      [labels]="doughnutChartLabels" [options]="chartOptions" [legend]="false">
-    </canvas>
-  </div>
-  <hr>
-  <div class="col-6">
-    <canvas *ngIf="loaded" width="400" height="400" baseChart [datasets]="barChartData" [labels]="barChartLabels"
-      [options]="barChartOptions" [legend]="false" chartType="bar"></canvas>
-  </div>
 </div>

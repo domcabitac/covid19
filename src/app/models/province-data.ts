@@ -1,8 +1,7 @@
 export interface ProvinceDataSummary {
     province : string,
-    date_active ?: string,
-    cumulative_cases: number,
-    cumulative_deaths ?: number ,
-    cumulative_recovered ?: number,
-    active_cases ?: number
+    health_region : string, 
+    date_report : Date,
+    cases: number,
+    cumulative_cases ?: number
 }

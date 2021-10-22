@@ -26,7 +26,7 @@ export class CountriesComponent implements OnInit {
     })
   }
   updateValues(country : string){
-    console.log(country);
+    // console.log(country);
     this.data?.forEach(cs=>{
       if(cs.province == country){
         this.totalActive=(<any>cs).active_cases
