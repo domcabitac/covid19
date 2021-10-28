@@ -97,24 +97,41 @@ export class DashboardCardComponent implements OnInit {
           this.barChartData[0].data.push(cs.cumulative_cases);
           this.barChartData[0].label = 'Confirmed cases: ';
           (<any>this).lineChartData[0].data.push(cs.cumulative_cases);
+          (<any>document).getElementById("c").classList.add("flip");         
+          (<any>document).getElementById("d").classList.remove("flip");     
+          (<any>document).getElementById("r").classList.remove("flip");         
+          (<any>document).getElementById("a").classList.remove("flip");             
+          break;
           break;
         case 'a':
           this.doughnutChartData.push(cs.active_cases!);
           this.barChartData[0].data.push(cs.active_cases!);
           this.barChartData[0].label = 'Active cases: ';
           (<any>this).lineChartData[0].data.push(cs.active_cases);
+          (<any>document).getElementById("a").classList.add("flip");         
+          (<any>document).getElementById("d").classList.remove("flip");     
+          (<any>document).getElementById("r").classList.remove("flip");         
+          (<any>document).getElementById("c").classList.remove("flip");  
           break;
         case 'r':
           this.doughnutChartData.push(cs.cumulative_recovered!);
           this.barChartData[0].data.push(cs.cumulative_recovered!);
           this.barChartData[0].label = 'Recovered cases: ';
           (<any>this).lineChartData[0].data.push(cs.cumulative_recovered);
+          (<any>document).getElementById("r").classList.add("flip");         
+          (<any>document).getElementById("d").classList.remove("flip");     
+          (<any>document).getElementById("c").classList.remove("flip");         
+          (<any>document).getElementById("a").classList.remove("flip");  
           break;
         case 'd':
           this.doughnutChartData.push(cs.cumulative_deaths!);
           this.barChartData[0].data.push(cs.cumulative_deaths!);
           this.barChartData[0].label = 'Deaths: ';
           (<any>this).lineChartData[0].data.push(cs.cumulative_deaths);
+          (<any>document).getElementById("d").classList.add("flip");         
+          (<any>document).getElementById("c").classList.remove("flip");     
+          (<any>document).getElementById("r").classList.remove("flip");         
+          (<any>document).getElementById("a").classList.remove("flip");  
           break;
         default:
           break;
@@ -158,7 +175,5 @@ export class DashboardCardComponent implements OnInit {
 
     this.updateData(x);
   }
-  toggleClass() {
-    this.classApplied = !this.classApplied;
-  }
+
 }

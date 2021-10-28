@@ -4,6 +4,7 @@
     &:hover {
         transform: translateY(-10px);
         transition: 250ms all ease;
+        cursor: pointer;
     }
 }
 @media only screen and (max-width: 1200px) {
@@ -17,8 +18,11 @@
     background-color: none;
 }
 
-.active {
-    background-color: red;
+.flip {
+    background-color: rgb(128, 179, 255, 1);
+    div{
+        color: #FAF9F6 !important;
+    }
   } 
 
 .row {

@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-center align-items-center">
     <div class="col-6 col-xl-3 col-lg-3">
-        <div class="card"  name="caseType" value='c' (click)="updateChartType('c'); toggleClass()">
+        <div class="card" id='c' name="caseType" value='c' #c (click)="updateChartType('c'); ">
             <div class="ui statistic">
                 <div class="label" >
                     <h3 for='c'>
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-6 col-xl-3 col-lg-3">
-        <div class="card" name="caseType" value='d' (click)="updateChartType('d'); toggleClass()">
+        <div class="card" id='d'name="caseType" value='d' #d (click)="updateChartType('d'); ">
             <div class="ui statistic">
                 <div class="label">
                     <h3 for='d'>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-6 col-xl-3 col-lg-3">
-        <div class="card" name="caseType" value='r'  (click)="updateChartType('r'); toggleClass() ">
+        <div class="card" id='r' name="caseType" value='r' #r (click)="updateChartType('r');  ">
             <div class="ui statistic">
                 <div class="label">
                     <h3 for='r'>
@@ -42,7 +42,7 @@
         </div>     
     </div>
    <div class="col-6 col-xl-3 col-lg-3">
-    <div class="card " name="caseType" value='a' id='a' (click)="updateChartType('a'); toggleClass()">
+    <div class="card " name="caseType" value='a' id='a' #a (click)="updateChartType('a'); ">
         <div class="ui statistic">
             <div class="label">
                 <h3 for='a'>
