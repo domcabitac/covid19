@@ -4,22 +4,20 @@ import { Ng2GoogleChartsModule, GoogleChartsSettings } from 'ng2-google-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CountriesComponent } from './components/countries/countries.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component';
 import { ChartsModule  } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProvincesComponent } from './components/provinces/provinces.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
-    CountriesComponent,
     DashboardCardComponent,
+    ProvincesComponent,
   ],
   imports: [
     BrowserModule,

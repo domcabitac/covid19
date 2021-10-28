@@ -1,46 +1,53 @@
-<div class="row">
-    <div class="card col p-3 m-3 {{is_active}}" name="caseType" value='c' (click)="updateChartType('c'); toggleNav()" >
-        <div class="ui statistic">
-            <div class="label" >
-                <h3 for='c'>
-                    Confirmed
-                </h3>
-              </div>
-            <div class="value">
-                {{totalConfirmed}}
+<div class="row d-flex justify-content-center align-items-center">
+    <div class="col-6 col-xl-3 col-lg-3">
+        <div class="card"  name="caseType" value='c' (click)="updateChartType('c'); toggleClass()">
+            <div class="ui statistic">
+                <div class="label" >
+                    <h3 for='c'>
+                        Confirmed
+                    </h3>
+                  </div>
+                <div class="value">
+                    {{totalConfirmed}}
+                </div>
             </div>
         </div>
     </div>
-        <div class="card col p-3 m-3 {is_active}}" name="caseType" value='d' (click)="updateChartType('d'); toggleNav()">
-        <div class="ui statistic">
-            <div class="label">
-                <h3 for='d'>
-                    Deaths
-                </h3>
-              </div>
-            <div class="value">
-                {{totalDeaths}}
+    <div class="col-6 col-xl-3 col-lg-3">
+        <div class="card" name="caseType" value='d' (click)="updateChartType('d'); toggleClass()">
+            <div class="ui statistic">
+                <div class="label">
+                    <h3 for='d'>
+                        Deaths
+                    </h3>
+                  </div>
+                <div class="value">
+                    {{totalDeaths}}
+                </div>
             </div>
         </div>
     </div>
-    <div class="card col p-3 m-3 {is_active}}" name="caseType" value='r'  (click)="updateChartType('r'); toggleNav()">
-        <div class="ui statistic">
-            <div class="label">
-                <h3 for='r'>
-                    Recovered
-                </h3>
-              </div>
-            <div class="value">
-                {{totalRecovered}}
+    <div class="col-6 col-xl-3 col-lg-3">
+        <div class="card" name="caseType" value='r'  (click)="updateChartType('r'); toggleClass() ">
+            <div class="ui statistic">
+                <div class="label">
+                    <h3 for='r'>
+                        Recovered
+                    </h3>
+                  </div>
+                <div class="value">
+                    {{totalRecovered}}
+                </div>
             </div>
-        </div>
-    </div>        
-    <div class="card col p-3 m-3 {is_active}}" name="caseType" value='a' id='a' (click)="updateChartType('a'); toggleNav()">
+        </div>     
+    </div>
+   <div class="col-6 col-xl-3 col-lg-3">
+    <div class="card " name="caseType" value='a' id='a' (click)="updateChartType('a'); toggleClass()">
         <div class="ui statistic">
             <div class="label">
-                <label for='a'>
+                <h3 for='a'>
                     Active
-                </label>
+                </h3>
               </div>
             <div class="value">
                 {{totalActive}}
@@ -48,23 +55,28 @@
         </div>
     </div>
 </div>
-
+</div>
 <div class="row">
-    <div class="col-6">
-        <canvas *ngIf="loaded" baseChart chartType="doughnut" [data]="doughnutChartData"
+    <div class="col-12 col-xl-6 col-lg-6">
+        <canvas id='donutChart' *ngIf="loaded" baseChart chartType="doughnut" [data]="doughnutChartData" [colors]="doughnutChartColors"
         [labels]="doughnutChartLabels" [options]="chartOptions" [legend]="false">
       </canvas>
     </div>
-    <div class="col-5">
-      <canvas height='400' *ngIf="loaded" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+    <div class="col-12 col-xl-6 col-lg-6">
+      <canvas id='barChart' height='400' *ngIf="loaded" baseChart [datasets]="barChartData" [labels]="barChartLabels" [colors]="doughnutChartColors"
         [options]="barChartOptions" [legend]="false" chartType="bar">
       </canvas>
     </div>
   </div>
-  <div class="row">
+  <div class="row" id='lineChart' >
+    <h2 class="display-4">Canada Wide</h2>
     <div class="col">
-        <canvas baseChart width="400" height="200" [datasets]="lineChartData" [labels]="lineChartLabels"
-            [legend]="lineChartLegend" chartType="line">
+        <canvas baseChart width="400" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [colors]='lineChartColor'
+        [legend]="false" chartType="line">
         </canvas>
       </div>
+  </div>
+
+  <div class="row">
+      
   </div>

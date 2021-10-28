@@ -3,6 +3,7 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 import { GlobalDataSummary } from 'src/app/models/global-data';
 import { ChartDataSets, ChartOptions} from "chart.js";
 import { TimelineSummary } from 'src/app/models/timeline-data';
+import { Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-dashboard-card',
@@ -10,7 +11,7 @@ import { TimelineSummary } from 'src/app/models/timeline-data';
   styleUrls: ['./dashboard-card.component.scss']
 })
 export class DashboardCardComponent implements OnInit {
-  is_active = "";
+  classApplied = false;
   loaded = false;
 
   public lineChartData: ChartDataSets[] = [
@@ -27,7 +28,19 @@ export class DashboardCardComponent implements OnInit {
     responsive: true,
     maintainAspectRatio: false
   };
-  
+  public doughnutChartColors: Color[] = [
+    {backgroundColor:["rgb(255, 128, 128)","rgb(255, 179, 128)","rgb(255, 230, 128)","rgb(229, 255, 128)", "rgb(179, 255, 128)", "rgb(128, 255, 128)","rgb(128, 255, 179)","rgb(128, 255, 229)" ,"rgb(128, 229, 255)", "rgb(128, 179, 255)", "rgb(128, 128, 255)", "rgb(178, 128, 255)", "rgb(229, 128, 245)", "rgb(255, 128, 230)", "rgb(255, 128, 179)", "rgb(141, 211, 199)"]},
+  ];
+
+  public lineChartColor: Color[] = [{
+          backgroundColor: 'rgb(128, 179, 255, 0.2)',
+      borderColor: 'rgb(128, 179, 255, 1)',
+      pointBackgroundColor: 'rgb(128, 179, 255, 1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(128, 179, 255, 1)'
+  }];
+
   public doughnutChartLabels: string[] = [];
   public barChartLabels: string[] = [];
   public doughnutChartData: number[] = [];
@@ -145,12 +158,7 @@ export class DashboardCardComponent implements OnInit {
 
     this.updateData(x);
   }
-  toggleNav(){
-    if(this.is_active){
-      this.is_active = "";
-    }
-    else{
-      this.is_active = "is-active";
-    }
-  }  
+  toggleClass() {
+    this.classApplied = !this.classApplied;
+  }
 }

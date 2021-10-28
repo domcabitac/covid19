@@ -17,7 +17,6 @@ export class DataServiceService {
 
   // private globalDataURL =  `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${month}-${day}-${year}.csv`;
   private globalDataURL =  'https://raw.githubusercontent.com/ccodwg/Covid19Canada/master/timeseries_prov/active_timeseries_prov.csv';
-  private cityDataURL = 'https://raw.githubusercontent.com/ccodwg/Covid19Canada/master/timeseries_hr/cases_timeseries_hr.csv';
   private timelineDataURL = 'https://raw.githubusercontent.com/ccodwg/Covid19Canada/master/timeseries_canada/active_timeseries_canada.csv';
 
   constructor(private http : HttpClient) { }

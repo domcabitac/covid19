@@ -1,13 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { GlobalDataSummary } from 'src/app/models/global-data';
 
 @Component({
-  selector: 'app-countries',
-  templateUrl: './countries.component.html',
-  styleUrls: ['./countries.component.scss']
+  selector: 'app-provinces',
+  templateUrl: './provinces.component.html',
+  styleUrls: ['./provinces.component.scss']
 })
-export class CountriesComponent implements OnInit {
+export class ProvincesComponent implements OnInit {
+
 
   data: GlobalDataSummary[] | undefined;
   provinces : string[] = [];
