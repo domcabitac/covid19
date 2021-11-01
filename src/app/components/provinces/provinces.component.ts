@@ -16,6 +16,7 @@ export class ProvincesComponent implements OnInit {
   totalActive = 0;
   totalDeaths = 0;
   totalRecovered = 0;
+  prov: any;
   constructor(private service : DataServiceService) { }
 
   ngOnInit(): void {
@@ -27,7 +28,6 @@ export class ProvincesComponent implements OnInit {
     })
   }
   updateValues(country : string){
-    // console.log(country);
     this.data?.forEach(cs=>{
       if(cs.province == country){
         this.totalActive=(<any>cs).active_cases

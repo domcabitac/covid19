@@ -21,19 +21,19 @@ export class DashboardCardComponent implements OnInit {
 
   countryData: TimelineSummary[] = [];
 
-  public lineChartLegend = true;
+  public lineChartLegend = false;
   public lineChartType = "line";
   globalData!: GlobalDataSummary[];
   chartOptions = {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
   };
   public doughnutChartColors: Color[] = [
     {backgroundColor:["rgb(255, 128, 128)","rgb(255, 179, 128)","rgb(255, 230, 128)","rgb(229, 255, 128)", "rgb(179, 255, 128)", "rgb(128, 255, 128)","rgb(128, 255, 179)","rgb(128, 255, 229)" ,"rgb(128, 229, 255)", "rgb(128, 179, 255)", "rgb(128, 128, 255)", "rgb(178, 128, 255)", "rgb(229, 128, 245)", "rgb(255, 128, 230)", "rgb(255, 128, 179)", "rgb(141, 211, 199)"]},
   ];
 
   public lineChartColor: Color[] = [{
-          backgroundColor: 'rgb(128, 179, 255, 0.2)',
+      backgroundColor: 'rgb(128, 179, 255, 0.2)',
       borderColor: 'rgb(128, 179, 255, 1)',
       pointBackgroundColor: 'rgb(128, 179, 255, 1)',
       pointBorderColor: '#fff',
@@ -138,7 +138,10 @@ export class DashboardCardComponent implements OnInit {
       }
 
       this.doughnutChartLabels.push(cs.province);
-        if((this.barChartLabels.length) <= 14){
+      if((this.barChartLabels.length) <= 14){
+        for (var i = 0; i < this.barChartLabels.length; i++) {
+          (<any>this).barChartLabels[i] = (<any>this).barChartLabels[i].replace(/"/g, "");
+        }
           this.barChartLabels.push(cs.province);
         } else {
           this.barChartLabels.pop();
@@ -160,6 +163,9 @@ export class DashboardCardComponent implements OnInit {
             break;
           default:
             break;
+        }
+        for (var i = 0; i < this.lineChartLabels.length; i++) {
+          (<any>this).lineChartLabels[i] = (<any>this).lineChartLabels[i].replace(/"/g, "");
         }
         (<any>this).lineChartLabels.push(countryData.date_active);
       })   
@@ -199,5 +205,16 @@ export class DashboardCardComponent implements OnInit {
 
     return "1T+";
   }
+  firstAndLast(array) {
 
+    var firstItem = array[0];
+    var lastItem = array[array.length-1];
+    
+    var objOutput = {};
+    objOutput[firstItem]=lastItem
+    
+    return objOutput;
+    }
+      
 }
+

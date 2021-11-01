@@ -98,48 +98,4 @@ export class DataServiceService {
       })
     )
   }
-  // getCityWiseData() {
-  //   return this.http.get(this.cityDataURL, { responseType : 'text'}).pipe(
-  //     map(result=> {
-  //       let mainData = {};
-  //       let data: ProvinceDataSummary[] = [];
-  //       let rows = result.split('\n');
-  //       let header = rows[0];
-  //       let dates = header.split(/,(?=\S)/)
-  //       let raw = {};
-  //       //remove 0th index as it contains column names
-  //       rows.splice(0, 1);
-  //       rows.forEach(row => {
-  //         let rows = row.split('\n');
-  //         let cols = row.split(/,(?=\S)/);
-  //         rows.forEach(row => {
-  //           let prov = cols[0];
-  //           let city = cols[1];
-  //           let date = cols[2];
-  //           let cases = cols[3];
-  //           console.log(row);
-            
-  //           // console.log(cols);
-            
-  //           cols.splice(0 , 1);
-  //           mainData[prov] = [];
-  //           cols.forEach(()=>{
-  //             cols.splice(0 , 2);
-  //             let dw : ProvinceDataSummary = {
-  //               cases: +cases,
-  //               province: prov,
-  //               health_region: city,
-  //               date_report: new Date(Date.parse(date[date])) 
-  //             }
-  //             mainData[prov].push(dw)
-  //         })
-
-  //         })
-          
-  //       })
-  //       return mainData;
-  //     }
-  //       )
-  //     )
-  // }
 }

@@ -8,15 +8,23 @@ import { GlobalDataSummary } from 'src/app/models/global-data';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  yesterday = this.getYesterdaysDate();
+  
   totalConfirmed = 0;
   totalActive = 0;
   totalDeaths = 0;
   totalRecovered = 0;
   globalData!: GlobalDataSummary[];
 
-  constructor(private dataService: DataServiceService) { }
+  constructor(private dataService: DataServiceService) {
+   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+  getYesterdaysDate() {
+    var date = new Date();
+    date.setDate(date.getDate()-1);
+    return date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
+}
 
 }
